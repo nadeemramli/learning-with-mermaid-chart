@@ -43,7 +43,11 @@
     "fa-sys1": {
       "title": "System 1 — Why Accounting Exists (Ch 1–3)",
       "file": "accounting/fa-sys1.md",
-      "links": {},
+      "links": {
+        "CH1": "ch1",
+        "CH2": "ch2",
+        "CH3": "ch3"
+      },
       "notes": {
         "CH1": "Introduces the two core statements, the entity types (sole trader, partnership, limited liability company), the full list of users from management to shareholders, and corporate governance as the system by which entities are directed and controlled.",
         "CH2": "The IFRS Foundation appoints and oversees the IASB (IFRS Standards), the ISSB (sustainability disclosures), the Advisory Council (agenda advice) and IFRIC (interpretations where no standard exists).",
@@ -54,7 +58,11 @@
     "fa-sys2": {
       "title": "System 2 — Record Transactions (Ch 4–6)",
       "file": "accounting/fa-sys2.md",
-      "links": {},
+      "links": {
+        "CH4": "ch4",
+        "CH5": "ch5",
+        "CH6": "ch6"
+      },
       "notes": {
         "CH4": "Documents flow from quotation through orders, goods received/despatched notes, invoices, credit/debit notes, remittance advice and receipt. Sales and purchase invoices and credit notes are what enter the accounting records. Computerised systems centre on the general ledger with receivables, payables, non-current asset and inventory modules.",
         "CH5": "Every statement line has a ledger account, often drawn as a T account. Total debits must equal total credits: a debit increases assets, expenses and drawings (DEAD); a credit increases liabilities, income and capital (CLIC).",
@@ -64,7 +72,16 @@
     "fa-sys3": {
       "title": "System 3 — Adjust & Measure Balances (Ch 7–14)",
       "file": "accounting/fa-sys3.md",
-      "links": {},
+      "links": {
+        "CH7": "ch7",
+        "CH8": "ch8",
+        "CH9": "ch9",
+        "CH10": "ch10",
+        "CH11": "ch11",
+        "CH12": "ch12",
+        "CH13": "ch13",
+        "CH14": "ch14"
+      },
       "notes": {
         "CH7": "Inventory is measured at the lower of cost (FIFO or AVCO, including costs to bring it to present location and condition) and net realisable value (sales price less costs to complete and sell). In rising prices FIFO gives higher closing inventory and higher profit.",
         "CH8": "Capital expenditure creates a non-current asset at cost (purchase price plus directly attributable costs); repairs are expenses. Depreciate straight-line (even use) or diminishing-balance (front-loaded benefits); land is not depreciated. Revaluation is a policy choice applied to a whole class. On disposal, proceeds versus carrying amount gives profit or loss.",
@@ -79,7 +96,11 @@
     "fa-sys4": {
       "title": "System 4 — Verify, Correct or Reconstruct (Ch 15–17)",
       "file": "accounting/fa-sys4.md",
-      "links": {},
+      "links": {
+        "CH15": "ch15",
+        "CH16": "ch16",
+        "CH17": "ch17"
+      },
       "notes": {
         "CH15": "A credit balance on the bank statement means money in the bank; a debit balance means overdrawn. Differences are timing (outstanding lodgements, unpresented cheques) or business errors (omissions, transpositions, casting).",
         "CH16": "Errors of omission, commission, principle, compensating and transposition may or may not break the trial balance; a suspense account holds the difference until each error is identified and corrected. Corrections can change reported profit.",
@@ -89,7 +110,16 @@
     "fa-sys5": {
       "title": "System 5 — Assemble Financial Statements (Ch 18–25)",
       "file": "accounting/fa-sys5.md",
-      "links": {},
+      "links": {
+        "CH18": "ch18",
+        "CH19": "ch19",
+        "CH20": "ch20",
+        "CH21": "ch21",
+        "CH22": "ch22",
+        "CH23": "ch23",
+        "CH24": "ch24",
+        "CH25": "ch25"
+      },
       "notes": {
         "CH18": "Technique chapter: work from the trial balance through the key adjustments — closing inventory, drawings, depreciation, irrecoverable debts, accruals and prepayments, receivables and payables — to complete statements.",
         "CH19": "Company finance: issues at a premium (excess credited to share premium), rights issues (below market, to existing holders), bonus issues (free, funded from reserves); reserves; long-term borrowings with interest to profit or loss; income tax as a current liability; dividends as appropriations of retained earnings.",
@@ -104,11 +134,143 @@
     "fa-sys6": {
       "title": "System 6 — Interpret Financial Statements (Ch 26)",
       "file": "accounting/fa-sys6.md",
-      "links": {},
+      "links": {
+        "CH26": "ch26"
+      },
       "notes": {
         "CH26": "Ratio families: profitability (gross and operating margin, ROCE, ROE), liquidity (current, quick), efficiency (inventory turnover, receivables collection, payables payment, working capital cycle, asset turnover), position (interest cover, gearing). Note obvious trends before calculating, and mind the limitations.",
         "CH26F": "Ratios mislead under inflation, differing accounting policies, seasonal trading, unrepresentative year-ends, related party transactions, differing ratio definitions, manipulated statements, or a new company with no comparatives."
       }
+    },
+    "ch1": {
+      "title": "Ch 1 — Introduction to Accounting",
+      "file": "accounting/chapters/ch01.md",
+      "links": {}
+    },
+    "ch2": {
+      "title": "Ch 2 — The Regulatory Framework",
+      "file": "accounting/chapters/ch02.md",
+      "links": {}
+    },
+    "ch3": {
+      "title": "Ch 3 — Qualitative Characteristics of Financial Information",
+      "file": "accounting/chapters/ch03.md",
+      "links": {}
+    },
+    "ch4": {
+      "title": "Ch 4 — Financial Transactions and Accounting Systems",
+      "file": "accounting/chapters/ch04.md",
+      "links": {}
+    },
+    "ch5": {
+      "title": "Ch 5 — Ledger Accounts and Double Entry",
+      "file": "accounting/chapters/ch05.md",
+      "links": {}
+    },
+    "ch6": {
+      "title": "Ch 6 — From Trial Balance to Financial Statements",
+      "file": "accounting/chapters/ch06.md",
+      "links": {}
+    },
+    "ch7": {
+      "title": "Ch 7 — Inventory",
+      "file": "accounting/chapters/ch07.md",
+      "links": {}
+    },
+    "ch8": {
+      "title": "Ch 8 — Tangible Non-current Assets",
+      "file": "accounting/chapters/ch08.md",
+      "links": {}
+    },
+    "ch9": {
+      "title": "Ch 9 — Intangible Non-current Assets",
+      "file": "accounting/chapters/ch09.md",
+      "links": {}
+    },
+    "ch10": {
+      "title": "Ch 10 — Accruals and Prepayments",
+      "file": "accounting/chapters/ch10.md",
+      "links": {}
+    },
+    "ch11": {
+      "title": "Ch 11 — Provisions and Contingencies",
+      "file": "accounting/chapters/ch11.md",
+      "links": {}
+    },
+    "ch12": {
+      "title": "Ch 12 — Irrecoverable Debts and Allowances",
+      "file": "accounting/chapters/ch12.md",
+      "links": {}
+    },
+    "ch13": {
+      "title": "Ch 13 — Sales Tax",
+      "file": "accounting/chapters/ch13.md",
+      "links": {}
+    },
+    "ch14": {
+      "title": "Ch 14 — Trade Receivables and Trade Payables",
+      "file": "accounting/chapters/ch14.md",
+      "links": {}
+    },
+    "ch15": {
+      "title": "Ch 15 — Bank Reconciliations",
+      "file": "accounting/chapters/ch15.md",
+      "links": {}
+    },
+    "ch16": {
+      "title": "Ch 16 — Correction of Errors",
+      "file": "accounting/chapters/ch16.md",
+      "links": {}
+    },
+    "ch17": {
+      "title": "Ch 17 — Incomplete Records",
+      "file": "accounting/chapters/ch17.md",
+      "links": {}
+    },
+    "ch18": {
+      "title": "Ch 18 — Preparation of Financial Statements",
+      "file": "accounting/chapters/ch18.md",
+      "links": {}
+    },
+    "ch19": {
+      "title": "Ch 19 — Introduction to Company Accounting",
+      "file": "accounting/chapters/ch19.md",
+      "links": {}
+    },
+    "ch20": {
+      "title": "Ch 20 — Preparation of Financial Statements for Companies",
+      "file": "accounting/chapters/ch20.md",
+      "links": {}
+    },
+    "ch21": {
+      "title": "Ch 21 — Events After the Reporting Period",
+      "file": "accounting/chapters/ch21.md",
+      "links": {}
+    },
+    "ch22": {
+      "title": "Ch 22 — Statement of Cash Flows",
+      "file": "accounting/chapters/ch22.md",
+      "links": {}
+    },
+    "ch23": {
+      "title": "Ch 23 — Introduction to Consolidated Financial Statements",
+      "file": "accounting/chapters/ch23.md",
+      "links": {}
+    },
+    "ch24": {
+      "title": "Ch 24 — Consolidated Statement of Financial Position",
+      "file": "accounting/chapters/ch24.md",
+      "links": {}
+    },
+    "ch25": {
+      "title": "Ch 25 — Consolidated Statement of Profit or Loss",
+      "file": "accounting/chapters/ch25.md",
+      "links": {}
+    },
+    "ch26": {
+      "title": "Ch 26 — Interpretation of Financial Statements",
+      "file": "accounting/chapters/ch26.md",
+      "links": {}
     }
   }
 }

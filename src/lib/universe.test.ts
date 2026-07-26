@@ -27,7 +27,7 @@ describe('the real universe', () => {
 
   it('loads all systems and derives parents', () => {
     expect(universe.rootId).toBe('economy')
-    expect(universe.systems.size).toBe(9)
+    expect(universe.systems.size).toBe(35)
     expect(universe.systems.get('regulatory-ecosystem')?.parent).toEqual({
       systemId: 'economy',
       nodeId: 'ACC',
@@ -57,6 +57,15 @@ describe('the real universe', () => {
     expect([...chapters].map(Number).sort((a, b) => a - b)).toEqual(
       Array.from({ length: 26 }, (_, i) => i + 1),
     )
+  })
+
+  it('every chapter subgraph drills into its own chapter-detail system', () => {
+    for (let n = 1; n <= 26; n++) {
+      const chapter = universe.systems.get(`ch${n}`)
+      expect(chapter, `ch${n} missing`).toBeDefined()
+      expect(chapter?.parent?.nodeId).toBe(`CH${n}`)
+      expect(chapter?.depth).toBe(4)
+    }
   })
 
   it('computes depth and breadcrumbs', () => {

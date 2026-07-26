@@ -9,6 +9,7 @@ function readContentFiles(): Record<string, string> {
   const files: Record<string, string> = {}
   const walk = (dir: string) => {
     for (const name of readdirSync(dir)) {
+      if (name === 'staging') continue
       const full = join(dir, name)
       if (statSync(full).isDirectory()) walk(full)
       else if (name.endsWith('.md')) files[relative(CONTENT_DIR, full)] = readFileSync(full, 'utf8')

@@ -1,7 +1,8 @@
 import manifest from '../../content/manifest.json'
 import { buildUniverse, type Universe } from './universe'
 
-const globbed = import.meta.glob('../../content/**/*.md', {
+// content/staging holds unprocessed raw dumps — never bundle or load it.
+const globbed = import.meta.glob(['../../content/**/*.md', '!**/staging/**'], {
   query: '?raw',
   import: 'default',
   eager: true,

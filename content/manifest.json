@@ -27,10 +27,87 @@
     "fa-architecture": {
       "title": "Financial Accounting — System Architecture",
       "file": "accounting/fa-architecture.md",
-      "links": {},
+      "links": {
+        "SYS1": "fa-sys1",
+        "SYS2": "fa-sys2",
+        "SYS3": "fa-sys3",
+        "SYS4": "fa-sys4",
+        "SYS5": "fa-sys5",
+        "SYS6": "fa-sys6"
+      },
       "notes": {
         "C": "The 'reporting constitution' is the conceptual foundation every later system obeys: objectives, rules, element definitions, and recognition/measurement principles.",
         "ATB": "The adjusted trial balance is the checkpoint between raw bookkeeping and the financial statements — every adjustment in System 3 lands here."
+      }
+    },
+    "fa-sys1": {
+      "title": "System 1 — Why Accounting Exists (Ch 1–3)",
+      "file": "accounting/fa-sys1.md",
+      "links": {},
+      "notes": {
+        "CH1": "Introduces the two core statements, the entity types (sole trader, partnership, limited liability company), the full list of users from management to shareholders, and corporate governance as the system by which entities are directed and controlled.",
+        "CH2": "The IFRS Foundation appoints and oversees the IASB (IFRS Standards), the ISSB (sustainability disclosures), the Advisory Council (agenda advice) and IFRIC (interpretations where no standard exists).",
+        "CH3": "The Conceptual Framework: accrual accounting and going concern underpin the objective; relevance and faithful representation are fundamental; comparability, verifiability, timeliness and understandability enhance; benefits must justify cost. Defines the five elements and the historical-cost versus current-value measurement bases.",
+        "CH3E": "Historical cost is most common: measured at transaction date, not updated. Current value includes fair value, value in use / fulfilment value, and current cost."
+      }
+    },
+    "fa-sys2": {
+      "title": "System 2 — Record Transactions (Ch 4–6)",
+      "file": "accounting/fa-sys2.md",
+      "links": {},
+      "notes": {
+        "CH4": "Documents flow from quotation through orders, goods received/despatched notes, invoices, credit/debit notes, remittance advice and receipt. Sales and purchase invoices and credit notes are what enter the accounting records. Computerised systems centre on the general ledger with receivables, payables, non-current asset and inventory modules.",
+        "CH5": "Every statement line has a ledger account, often drawn as a T account. Total debits must equal total credits: a debit increases assets, expenses and drawings (DEAD); a credit increases liabilities, income and capital (CLIC).",
+        "CH6": "Balancing off every account produces the trial balance, from which the statement of profit or loss (period performance) and statement of financial position (point-in-time snapshot) are drawn. Assets = capital + liabilities throughout."
+      }
+    },
+    "fa-sys3": {
+      "title": "System 3 — Adjust & Measure Balances (Ch 7–14)",
+      "file": "accounting/fa-sys3.md",
+      "links": {},
+      "notes": {
+        "CH7": "Inventory is measured at the lower of cost (FIFO or AVCO, including costs to bring it to present location and condition) and net realisable value (sales price less costs to complete and sell). In rising prices FIFO gives higher closing inventory and higher profit.",
+        "CH8": "Capital expenditure creates a non-current asset at cost (purchase price plus directly attributable costs); repairs are expenses. Depreciate straight-line (even use) or diminishing-balance (front-loaded benefits); land is not depreciated. Revaluation is a policy choice applied to a whole class. On disposal, proceeds versus carrying amount gives profit or loss.",
+        "CH9": "Research expenditure is written off as incurred. Development expenditure must be capitalised when the PIRATE criteria are all satisfied, then amortised over its finite life.",
+        "CH10": "Accruals: expenses incurred but unpaid (liability); prepayments: paid in advance (asset). Mirror rules for accrued income (asset) and deferred income (liability).",
+        "CH11": "Recognise a provision only when there is a present obligation, a probable transfer of economic benefit, and a reliable estimate. Contingent liabilities and (probable) contingent assets are disclosed in the notes, not recognised.",
+        "CH12": "Irrecoverable debts are written off to expense. An allowance covers specific doubtful debts plus a percentage of the rest; only the movement in the allowance hits profit or loss.",
+        "CH13": "Output tax is charged on sales, input tax paid on purchases; the difference is settled with the tax authority. Irrecoverable sales tax is included in the cost of the purchase.",
+        "CH14": "Trade receivables/payables in the general ledger are control totals; individual customer and supplier balances live in separate ledgers outside the double-entry system. Supplier statements are reconciled against the payables ledger."
+      }
+    },
+    "fa-sys4": {
+      "title": "System 4 — Verify, Correct or Reconstruct (Ch 15–17)",
+      "file": "accounting/fa-sys4.md",
+      "links": {},
+      "notes": {
+        "CH15": "A credit balance on the bank statement means money in the bank; a debit balance means overdrawn. Differences are timing (outstanding lodgements, unpresented cheques) or business errors (omissions, transpositions, casting).",
+        "CH16": "Errors of omission, commission, principle, compensating and transposition may or may not break the trial balance; a suspense account holds the difference until each error is identified and corrected. Corrections can change reported profit.",
+        "CH17": "With incomplete records, reconstruct figures using cost structures (margin = gross profit % of sales; mark-up = % of cost), T-account workings for credit sales and purchases, drawings, and the accounting equation: assets = liabilities + capital + profit − drawings."
+      }
+    },
+    "fa-sys5": {
+      "title": "System 5 — Assemble Financial Statements (Ch 18–25)",
+      "file": "accounting/fa-sys5.md",
+      "links": {},
+      "notes": {
+        "CH18": "Technique chapter: work from the trial balance through the key adjustments — closing inventory, drawings, depreciation, irrecoverable debts, accruals and prepayments, receivables and payables — to complete statements.",
+        "CH19": "Company finance: issues at a premium (excess credited to share premium), rights issues (below market, to existing holders), bonus issues (free, funded from reserves); reserves; long-term borrowings with interest to profit or loss; income tax as a current liability; dividends as appropriations of retained earnings.",
+        "CH20": "Full company statements: SPLOCI (realised gains in profit or loss, unrealised in OCI), SoFP, statement of changes in equity, and examinable disclosure notes. IFRS 15: recognise revenue when control of goods or services transfers to the customer.",
+        "CH21": "Events between the reporting date and authorisation of the statements: adjusting events evidence conditions that existed at the reporting date (court case resolution, customer bankruptcy); non-adjusting events arose after it (fire, share transactions, proposed dividends) and are disclosed if material.",
+        "CH22": "IAS 7 groups cash movements into operating (indirect method adjusts operating profit for non-cash items and working capital; direct method uses gross receipts and payments), investing and financing activities.",
+        "CH23": "Three investment types: subsidiary (control — consolidate), associate (significant influence — equity account), trade investment (neither). Group statements present the parent and subsidiaries as a single entity.",
+        "CH24": "Consolidated SoFP: goodwill = consideration + NCI − fair value of net assets acquired; add 100% of subsidiary assets and liabilities; eliminate the parent's investment, inter-company balances and unrealised profit; pro-rate for mid-year acquisitions.",
+        "CH25": "Consolidated SoPL: cancel intra-group revenue and cost of sales, remove unrealised profit on inventory still held, and pro-rate the subsidiary's results and NCI for mid-year acquisitions."
+      }
+    },
+    "fa-sys6": {
+      "title": "System 6 — Interpret Financial Statements (Ch 26)",
+      "file": "accounting/fa-sys6.md",
+      "links": {},
+      "notes": {
+        "CH26": "Ratio families: profitability (gross and operating margin, ROCE, ROE), liquidity (current, quick), efficiency (inventory turnover, receivables collection, payables payment, working capital cycle, asset turnover), position (interest cover, gearing). Note obvious trends before calculating, and mind the limitations.",
+        "CH26F": "Ratios mislead under inflation, differing accounting policies, seasonal trading, unrepresentative year-ends, related party transactions, differing ratio definitions, manipulated statements, or a new company with no comparatives."
       }
     }
   }

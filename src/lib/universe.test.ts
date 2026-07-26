@@ -27,7 +27,7 @@ describe('the real universe', () => {
 
   it('loads all systems and derives parents', () => {
     expect(universe.rootId).toBe('economy')
-    expect(universe.systems.size).toBe(3)
+    expect(universe.systems.size).toBe(9)
     expect(universe.systems.get('regulatory-ecosystem')?.parent).toEqual({
       systemId: 'economy',
       nodeId: 'ACC',
@@ -36,6 +36,27 @@ describe('the real universe', () => {
       systemId: 'regulatory-ecosystem',
       nodeId: 'REPORTING',
     })
+    // The six chapter-level systems hang off the SYS1..SYS6 subgraph containers.
+    for (const n of [1, 2, 3, 4, 5, 6]) {
+      expect(universe.systems.get(`fa-sys${n}`)?.parent).toEqual({
+        systemId: 'fa-architecture',
+        nodeId: `SYS${n}`,
+      })
+    }
+  })
+
+  it('covers all 26 FFA chapters across the six chapter-level systems', () => {
+    const chapters = new Set<string>()
+    for (const n of [1, 2, 3, 4, 5, 6]) {
+      const system = universe.systems.get(`fa-sys${n}`)!
+      for (const subgraph of system.diagram.subgraphs) {
+        const match = subgraph.id.match(/^CH(\d+)$/)
+        if (match) chapters.add(match[1])
+      }
+    }
+    expect([...chapters].map(Number).sort((a, b) => a - b)).toEqual(
+      Array.from({ length: 26 }, (_, i) => i + 1),
+    )
   })
 
   it('computes depth and breadcrumbs', () => {

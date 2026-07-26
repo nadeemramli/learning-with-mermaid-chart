@@ -7,7 +7,10 @@ export interface SystemDef {
   file: string
   /** nodeId (or subgraphId) in this system's diagram → child system id */
   links: Record<string, string>
+  /** nodeId → text shown in the click-through detail panel */
   notes?: Record<string, string>
+  /** nodeId → text rendered inline inside the node itself */
+  details?: Record<string, string>
 }
 
 export interface LoadedSystem {
@@ -27,7 +30,16 @@ export interface Universe {
 interface ManifestShape {
   title: string
   root: string
-  systems: Record<string, { title: string; file: string; links: Record<string, string>; notes?: Record<string, string> }>
+  systems: Record<
+    string,
+    {
+      title: string
+      file: string
+      links: Record<string, string>
+      notes?: Record<string, string>
+      details?: Record<string, string>
+    }
+  >
 }
 
 export function buildUniverse(manifest: ManifestShape, filesByPath: Record<string, string>): Universe {
@@ -59,17 +71,22 @@ export function buildUniverse(manifest: ManifestShape, filesByPath: Record<strin
     throw new Error(`manifest: root "${manifest.root}" is not a defined system`)
   }
 
-  // Validate notes: every key must be a real node or subgraph, or the note
-  // would silently never be shown.
+  // Validate notes and details: every key must be a real node or subgraph,
+  // or the text would silently never be shown.
   for (const system of systems.values()) {
-    for (const nodeId of Object.keys(system.def.notes ?? {})) {
-      const known =
-        system.diagram.nodes.some((n) => n.id === nodeId) ||
-        system.diagram.subgraphs.some((s) => s.id === nodeId)
-      if (!known) {
-        throw new Error(
-          `manifest: system "${system.def.id}" has a note for unknown node "${nodeId}"`,
-        )
+    for (const [field, map] of [
+      ['note', system.def.notes],
+      ['detail', system.def.details],
+    ] as const) {
+      for (const nodeId of Object.keys(map ?? {})) {
+        const known =
+          system.diagram.nodes.some((n) => n.id === nodeId) ||
+          system.diagram.subgraphs.some((s) => s.id === nodeId)
+        if (!known) {
+          throw new Error(
+            `manifest: system "${system.def.id}" has a ${field} for unknown node "${nodeId}"`,
+          )
+        }
       }
     }
   }

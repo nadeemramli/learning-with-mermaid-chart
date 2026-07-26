@@ -8,8 +8,10 @@ https://learning-with-mermaid-chart.vercel.app.
 
 - `content/manifest.json` is the hierarchy source of truth:
   `links: { nodeId → childSystemId }` on each system defines drill-downs;
-  parents are derived. Optional `notes: { nodeId → text }` feeds the detail
-  panel.
+  parents are derived. Optional `notes: { nodeId → text }` feeds the
+  click-through detail panel; optional `details: { nodeId → text }` renders
+  the text INLINE inside the node (Kaplan-summary style — used by fa-sys1..6).
+  Both maps are hard-validated against the diagram's node/subgraph ids.
 - Diagrams are plain mermaid `flowchart` blocks inside markdown fences.
   Supported subset (parser: `src/lib/mermaid/parse.ts`, fails loudly with
   line numbers): subgraphs with `direction`, `ID["label"]` rectangles,

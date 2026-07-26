@@ -7,6 +7,8 @@ export interface SystemNodeData extends Record<string, unknown> {
   kind: 'node' | 'group'
   /** Present when this node drills down into a child system. */
   childId?: string
+  /** Full descriptive text rendered inside the node, under the label. */
+  detail?: string
   highlight?: boolean
 }
 
@@ -33,12 +35,20 @@ export function wrapLabel(label: string, maxChars = 26): string[] {
   return lines
 }
 
-export function estimateNodeSize(label: string): { width: number; height: number } {
+export function estimateNodeSize(label: string, detail?: string): { width: number; height: number } {
   const lines = wrapLabel(label)
   const longest = Math.max(...lines.map((l) => l.length))
+  if (!detail) {
+    return {
+      width: Math.min(232, Math.max(96, Math.round(longest * 7.4) + 36)),
+      height: lines.length * 17 + 24,
+    }
+  }
+  // Detail nodes are wider and grow with the inline text block.
+  const detailLines = wrapLabel(detail, 48)
   return {
-    width: Math.min(232, Math.max(96, Math.round(longest * 7.4) + 36)),
-    height: lines.length * 17 + 24,
+    width: 264,
+    height: lines.length * 17 + 24 + detailLines.length * 13 + 12,
   }
 }
 
@@ -56,8 +66,10 @@ const ROOT_OPTIONS: Record<string, string> = {
   'elk.layered.considerModelOrder.strategy': 'NODES_AND_EDGES',
 }
 
-const SUBGRAPH_OPTIONS: Record<string, string> = {
-  'elk.padding': '[top=54,left=20,bottom=20,right=20]',
+function subgraphOptions(label: string): Record<string, string> {
+  // Reserve enough header space for the title to wrap without clipping.
+  const titleLines = Math.max(1, Math.ceil(label.length / 34))
+  return { 'elk.padding': `[top=${28 + titleLines * 17},left=20,bottom=20,right=20]` }
 }
 
 function elkDirection(direction: ParsedDiagram['direction']): string {
@@ -72,6 +84,7 @@ function elkDirection(direction: ParsedDiagram['direction']): string {
 async function computeLayout(
   diagram: ParsedDiagram,
   links: Record<string, string>,
+  details: Record<string, string>,
 ): Promise<LayoutResult> {
   const nodesBySubgraph = new Map<string | null, typeof diagram.nodes>()
   for (const node of diagram.nodes) {
@@ -90,12 +103,12 @@ async function computeLayout(
   const buildChildren = (parentId: string | null): ElkNode[] => [
     ...(subgraphsByParent.get(parentId) ?? []).map((s) => ({
       id: s.id,
-      layoutOptions: SUBGRAPH_OPTIONS,
+      layoutOptions: subgraphOptions(s.label),
       children: buildChildren(s.id),
     })),
     ...(nodesBySubgraph.get(parentId) ?? []).map((n) => ({
       id: n.id,
-      ...estimateNodeSize(n.label),
+      ...estimateNodeSize(n.label, details[n.id]),
     })),
   ]
 
@@ -141,7 +154,7 @@ async function computeLayout(
         rfNodes.push({
           ...base,
           type: 'systemNode',
-          data: { label, kind: 'node', childId: links[child.id] },
+          data: { label, kind: 'node', childId: links[child.id], detail: details[child.id] },
         })
       }
     }
@@ -188,10 +201,11 @@ export function layoutSystem(
   systemId: string,
   diagram: ParsedDiagram,
   links: Record<string, string>,
+  details: Record<string, string> = {},
 ): Promise<LayoutResult> {
   let cached = layoutCache.get(systemId)
   if (!cached) {
-    cached = computeLayout(diagram, links)
+    cached = computeLayout(diagram, links, details)
     layoutCache.set(systemId, cached)
   }
   return cached

@@ -8,7 +8,7 @@ export default function SystemNode({ id, data, selected }: NodeProps<Node<System
 
   return (
     <div
-      className={`relative flex h-full w-full items-center justify-center rounded-lg border px-2.5 py-1.5 text-center text-[11px] leading-[15px] transition-shadow ${
+      className={`relative flex h-full w-full flex-col items-center justify-center rounded-lg border px-2.5 py-1.5 text-center text-[11px] leading-[15px] transition-shadow ${
         data.highlight ? 'node-highlight' : ''
       }`}
       style={{
@@ -22,7 +22,15 @@ export default function SystemNode({ id, data, selected }: NodeProps<Node<System
       title={hasChild ? 'Double-click to enter this system' : undefined}
     >
       <Handle type="target" position={Position.Top} className="!pointer-events-none !opacity-0" />
-      <span>{data.label}</span>
+      <span className={data.detail ? 'font-semibold' : undefined}>{data.label}</span>
+      {data.detail && (
+        <span
+          className="mt-1.5 w-full border-t pt-1.5 text-left text-[9.5px] leading-[13px]"
+          style={{ borderColor: 'var(--node-border)', color: 'var(--group-title)' }}
+        >
+          {data.detail}
+        </span>
+      )}
       {hasChild && (
         <button
           className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold text-white shadow"

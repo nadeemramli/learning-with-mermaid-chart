@@ -53,6 +53,22 @@
         "CH2": "The IFRS Foundation appoints and oversees the IASB (IFRS Standards), the ISSB (sustainability disclosures), the Advisory Council (agenda advice) and IFRIC (interpretations where no standard exists).",
         "CH3": "The Conceptual Framework: accrual accounting and going concern underpin the objective; relevance and faithful representation are fundamental; comparability, verifiability, timeliness and understandability enhance; benefits must justify cost. Defines the five elements and the historical-cost versus current-value measurement bases.",
         "CH3E": "Historical cost is most common: measured at transaction date, not updated. Current value includes fair value, value in use / fulfilment value, and current cost."
+      },
+      "details": {
+        "CH1A": "A statement of profit or loss is a record of revenue (income) generated and expenditure incurred over a given period. The statement of financial position is a list of all the assets owned and all the liabilities owed by the business as at a particular date. Asset: a present economic resource controlled by the entity as a result of past events. Liability: a present obligation to transfer economic resource as a result of past events. Equity: the residual interest in the assets after deducting all liabilities.",
+        "CH1B": "Sole trader: a business owned and run by one individual. Partnership: arrangements between individuals to carry on business in common with a view to profit. Limited liability company: the business's debts and the personal debts of the owners (shareholders) are legally separate.",
+        "CH1C": "Management, government, public, lenders, analysts and advisers, third parties, employees, shareholders.",
+        "CH1D": "Corporate governance is the system by which companies and other entities are directed and controlled.",
+        "CH2A": "Appoints members to the IASB, IFRIC and IFRS Advisory Council, oversees the regulatory system and raises the finance to support it.",
+        "CH2B": "An independent standard setter made up of representatives from different global economies. IFRS Standards provide guidance on how transactions and events should be recognised, measured, presented and disclosed.",
+        "CH2C": "The Advisory Council advises the IASB on its agenda and timetable. IFRIC issues guidance on applying existing standards and on new issues where no IFRS Standard exists; it reports to the IASB.",
+        "CH2D": "Delivers sustainability-related disclosure standards that give investors information about companies' sustainability-related risks and opportunities.",
+        "CH3A": "Accrual accounting: effects of transactions are recognised when they occur, even if cash moves in a different period. Going concern: statements assume the entity will continue in operation for the foreseeable future.",
+        "CH3B": "Relevance: capable of making a difference to users' decisions — predictive and/or confirmatory value; materiality. Faithful representation: complete, neutral, free from error; reflects substance.",
+        "CH3C": "Comparability (other entities, other periods), verifiability (capable of being verified), timeliness (available in time to influence decisions), understandability (clear and concise classification and presentation).",
+        "CH3D": "Income: increases in assets or decreases in liabilities that increase equity, other than contributions from equity holders. Expenses: decreases in assets or increases in liabilities that decrease equity, other than distributions to equity holders.",
+        "CH3E": "Historical cost: most common; transaction-date value, not updated. Current value: fair value (orderly-market exit price), value in use / fulfilment value (present value of expected flows), current cost (equivalent asset cost at measurement date).",
+        "CH3F": "The benefits of reporting financial information must justify the costs incurred to provide and use it."
       }
     },
     "fa-sys2": {
@@ -67,6 +83,20 @@
         "CH4": "Documents flow from quotation through orders, goods received/despatched notes, invoices, credit/debit notes, remittance advice and receipt. Sales and purchase invoices and credit notes are what enter the accounting records. Computerised systems centre on the general ledger with receivables, payables, non-current asset and inventory modules.",
         "CH5": "Every statement line has a ledger account, often drawn as a T account. Total debits must equal total credits: a debit increases assets, expenses and drawings (DEAD); a credit increases liabilities, income and capital (CLIC).",
         "CH6": "Balancing off every account produces the trial balance, from which the statement of profit or loss (period performance) and statement of financial position (point-in-time snapshot) are drawn. Assets = capital + liabilities throughout."
+      },
+      "details": {
+        "CH4A": "Quotation, purchase order, sales order, goods received note, goods despatched note, sales invoice and supplier (purchase) invoice, supplier statement, credit note, debit note, remittance advice, receipt.",
+        "CH4B": "The documents entering the accounting records: sales invoices, sales credit notes, purchase invoices, purchase credit notes.",
+        "CH4C": "Off-the-shelf or bespoke software, installed locally or cloud-based. The main module is the general ledger; other modules include the receivables ledger, payables ledger, non-current asset register and inventory system.",
+        "CH4D": "Key features of computerised accounting systems: controls, standing data and account codes.",
+        "CH5A": "Each item in the statement of financial position or profit or loss has an 'account', often shown as a T account.",
+        "CH5B": "TOTAL DEBITS = TOTAL CREDITS, always.",
+        "CH5C": "A debit entry increases Expenses, Assets and Drawings; a credit entry increases Liabilities, Income and Capital — DEAD CLIC.",
+        "CH5D": "At the end of the period each ledger account is balanced off and the totals taken to the trial balance.",
+        "CH6A": "A list of all the assets, liabilities, capital, income and expenses of the business in debit and credit columns.",
+        "CH6B": "Shows all the income and expenses of the business over a period of time.",
+        "CH6C": "Shows all the assets and liabilities at a point in time — a snapshot of the position of the business.",
+        "CH6D": "Assets = capital + liabilities."
       }
     },
     "fa-sys3": {
@@ -91,6 +121,35 @@
         "CH12": "Irrecoverable debts are written off to expense. An allowance covers specific doubtful debts plus a percentage of the rest; only the movement in the allowance hits profit or loss.",
         "CH13": "Output tax is charged on sales, input tax paid on purchases; the difference is settled with the tax authority. Irrecoverable sales tax is included in the cost of the purchase.",
         "CH14": "Trade receivables/payables in the general ledger are control totals; individual customer and supplier balances live in separate ledgers outside the double-entry system. Supplier statements are reconciled against the payables ledger."
+      },
+      "details": {
+        "CH7A": "Cost comprises cost of purchase, cost of conversion, and other costs incurred bringing the inventory to its present location and condition. Two estimation methods: FIFO (first in first out) and AVCO (average cost).",
+        "CH7B": "Net realisable value = sales price, less costs to complete, less selling and distribution costs. Measure inventory at the lower of cost and NRV.",
+        "CH7C": "Opening inventory: Dr Opening inventory (SPL), Cr Inventory (SOFP). Closing inventory: Dr Inventory (SOFP), Cr Closing inventory (SPL).",
+        "CH7D": "In times of rising prices FIFO produces a higher closing inventory figure, a lower cost of sales and therefore a higher profit than AVCO.",
+        "CH8A": "Asset (capital) expenditure results in a non-current asset on the statement of financial position; other expenditure such as repairs and maintenance is an expense in profit or loss.",
+        "CH8B": "Record initially at cost: the purchase price plus any directly attributable costs of bringing the item to its intended location and ready to use.",
+        "CH8C": "Straight line suits assets used evenly (same expense each year); diminishing balance suits declining benefits (higher expense early). Land is not depreciated. Dr Depreciation expense (SPL), Cr Accumulated depreciation (SOFP).",
+        "CH8D": "A choice of accounting policy: if an entity revalues, it must revalue all assets in the same class, and the depreciation charge is based on the revalued amount.",
+        "CH8E": "Compare proceeds with carrying amount. Dr Disposal Cr Asset cost; Dr Accumulated depreciation Cr Disposal; Dr Cash Cr Disposal. A part-exchange allowance takes the place of proceeds. The balancing figure is the profit or loss on disposal.",
+        "CH9A": "No guarantee the expenditure will generate profit: write off in the year incurred — Dr Research expenditure (SOPL), Cr Bank.",
+        "CH9B": "Future profits are expected: must capitalise as an intangible non-current asset if all PIRATE criteria are satisfied — Dr Intangible non-current asset, Cr Bank/payables.",
+        "CH9C": "If the intangible has a finite life, amortise over that life — Dr Amortisation expense, Cr Intangible non-current asset.",
+        "CH10A": "Although unpaid, accrued expenses belong to this period: an expense and a liability — Dr Expenses (SPL), Cr Accrued expenses (SOFP).",
+        "CH10B": "Although paid, prepaid expenses belong to the next period: an asset — Dr Prepaid expenses (SOFP), Cr Expenses (SPL).",
+        "CH10C": "Accrued income: an asset — Dr Accrued income (SOFP), Cr Income (SPL). Deferred income: a liability — Dr Income (SPL), Cr Deferred income (SOFP).",
+        "CH11A": "A liability of uncertain timing or amount. Recognise only when there is a present obligation, a probable transfer of economic benefit and a reliable estimate. Increase: Dr Expense (SPL), Cr Provision (SOFP); decrease: reverse.",
+        "CH11B": "A possible obligation, or a present obligation that fails the recognition tests — disclose in the notes.",
+        "CH11C": "A possible asset from past events, confirmed only by uncertain future events outside the entity's control — disclose in the notes.",
+        "CH12A": "Debts the company believes the customer will never pay: Dr Irrecoverable debts expense (SPL), Cr Receivables.",
+        "CH12B": "Allowance for a specific doubtful debt plus a percentage of remaining receivables. Create/increase: Dr Irrecoverable debts expense (SPL), Cr Allowance (SOFP); decrease: reverse. Only the movement affects profit.",
+        "CH12C": "If a written-off customer later pays: Dr Cash at bank (SOFP), Cr Irrecoverable debts expense (SPL).",
+        "CH13A": "Charged on sales: Dr Trade receivables (gross), Cr Sales (net), Cr Sales tax account (SOFP).",
+        "CH13B": "Paid on purchases: Dr Purchases (net), Dr Sales tax account (SOFP), Cr Trade payables (gross).",
+        "CH13C": "Irrecoverable sales tax is included in the cost of the purchase. Rates are set by the tax authorities and provided in the exam.",
+        "CH14A": "General ledger holds control totals (total owed by all customers / to all suppliers); the receivables and payables ledgers hold each individual balance, outside the double-entry system.",
+        "CH14B": "Contras always reduce the outstanding balance. Returns cancel the original sale or purchase; refunds return the balance to zero. Trade discounts: always taken, record net. Settlement discounts: record net only if expected to be taken.",
+        "CH14C": "Compare supplier statements to the payables ledger to identify and correct errors; neither forms part of the double-entry system."
       }
     },
     "fa-sys4": {
@@ -105,6 +164,17 @@
         "CH15": "A credit balance on the bank statement means money in the bank; a debit balance means overdrawn. Differences are timing (outstanding lodgements, unpresented cheques) or business errors (omissions, transpositions, casting).",
         "CH16": "Errors of omission, commission, principle, compensating and transposition may or may not break the trial balance; a suspense account holds the difference until each error is identified and corrected. Corrections can change reported profit.",
         "CH17": "With incomplete records, reconstruct figures using cost structures (margin = gross profit % of sales; mark-up = % of cost), T-account workings for credit sales and purchases, drawings, and the accounting equation: assets = liabilities + capital + profit − drawings."
+      },
+      "details": {
+        "CH15A": "Compare the bank general ledger account balance with the bank statement balance. On the statement, a credit balance means money in the bank; a debit balance means overdrawn.",
+        "CH15B": "Outstanding lodgements (deposits credited after date) and unpresented cheques.",
+        "CH15C": "Omissions, transposition errors and casting errors.",
+        "CH16A": "Omission, commission, principle, compensating, transposition, unequal double entry.",
+        "CH16B": "A temporary account: takes postings when the correct treatment is uncertain, or makes the trial balance balance. To clear: identify the original entry, identify the correction needed, make the adjustment.",
+        "CH16C": "Correction of errors can alter reported profit.",
+        "CH17A": "Cost of sales = opening inventories + purchases − closing inventories. Margin = gross profit as a % of sales; mark-up = gross profit as a % of cost of sales.",
+        "CH17B": "Use opening/closing receivables and payables with cash received and paid to derive missing figures in T-account workings — excluding cash sales and purchases. Drawings of goods are recorded at cost.",
+        "CH17C": "Assets = liabilities + capital + profit − drawings; rearrange to find the missing figure."
       }
     },
     "fa-sys5": {
@@ -129,6 +199,33 @@
         "CH23": "Three investment types: subsidiary (control — consolidate), associate (significant influence — equity account), trade investment (neither). Group statements present the parent and subsidiaries as a single entity.",
         "CH24": "Consolidated SoFP: goodwill = consideration + NCI − fair value of net assets acquired; add 100% of subsidiary assets and liabilities; eliminate the parent's investment, inter-company balances and unrealised profit; pro-rate for mid-year acquisitions.",
         "CH25": "Consolidated SoPL: cancel intra-group revenue and cost of sales, remove unrealised profit on inventory still held, and pro-rate the subsidiary's results and NCI for mid-year acquisitions."
+      },
+      "details": {
+        "CH18A": "Work methodically from the trial balance through each adjustment to the finished statements.",
+        "CH18B": "Closing inventory, drawings, depreciation, irrecoverable debts, accruals and prepayments, trade receivables and trade payables.",
+        "CH19A": "Premium: excess over nominal value to share premium — Dr Cash, Cr Share capital, Cr Share premium. Rights issue: existing shareholders, below market price — cost-effective, keeps holdings if taken up. Bonus issue: no cash, at nominal value — Dr Reserves, Cr Share capital.",
+        "CH19B": "Share premium account, revaluation surplus, other reserves, retained earnings.",
+        "CH19C": "An alternative to issuing shares; interest expenses are incurred and charged to profit or loss.",
+        "CH19D": "Income tax: expense in profit or loss, current liability in the SOFP. Ordinary and irredeemable preference dividends: debited to retained earnings. Redeemable preference dividends: an interest expense.",
+        "CH20A": "SPL holds realised gains and losses; OCI unrealised ones (posted to reserves). Distribution costs = delivery; administrative = general costs; interest = bank, debenture and loan-note interest; tax = period estimate plus or minus prior under/over provision.",
+        "CH20B": "Shows the assets and liabilities of the business at a point in time.",
+        "CH20C": "Explains equity movements over the year: share issues, ordinary dividends, total comprehensive income, revaluation surplus, transfers to retained earnings.",
+        "CH20D": "Examinable notes: PPE, intangibles, inventory, provisions, contingent liabilities, contingent assets, events after the reporting period.",
+        "CH20E": "Recognise revenue to depict the transfer of goods or services — when control transfers to the customer.",
+        "CH21A": "Provide evidence of conditions existing at the reporting date: include in the statements. Examples: court case resolved, customer bankruptcy, NRV evidence, fraud or errors discovered.",
+        "CH21B": "Conditions arising after the reporting date: disclose if material. Examples: fire or flood destruction, major share transactions, plant closure announced, dividends declared after the period end.",
+        "CH22A": "Indirect: adjust operating profit for non-cash items, items shown elsewhere and working capital movements, then deduct interest and tax paid. Direct: receipts from customers less payments to suppliers and employees.",
+        "CH22B": "Purchase and sale proceeds of non-current assets; interest and dividends received.",
+        "CH22C": "Proceeds from share capital or debenture issues; repayment of loans; ordinary dividends paid.",
+        "CH23A": "Subsidiary: control. Associate: significant influence. Trade investment: no influence. In the parent's own statements the investment sits at cost, with dividend income in profit or loss.",
+        "CH23B": "Prepared for the parent's shareholders in addition to the parent's own statements. Add 100% of the subsidiary line by line; cancel the investment against share capital and pre-acquisition reserves.",
+        "CH23C": "Equity accounting: cost plus share of post-acquisition reserves less impairment; the consolidated SPLOCI takes the group % of the associate's profit and OCI.",
+        "CH24A": "Goodwill = fair value of consideration + fair value of NCI − fair value of net assets acquired. Positive: intangible non-current asset; negative: to profit or loss. Net assets come in at fair, not book, value.",
+        "CH24B": "Third-party shareholders in the subsidiary. Working: NCI at acquisition plus NCI share of post-acquisition reserves.",
+        "CH24C": "Single-entity view: eliminate intragroup revenue and cost of sales; unrealised profit on inventory (Dr Cost of sales, Cr Inventories); inter-company balances (Dr Payable, Cr Receivable).",
+        "CH24D": "Estimate pre-acquisition retained earnings: brought-forward earnings plus profit pro-rated to the acquisition date.",
+        "CH25A": "Cancel inter-company revenue and cost of sales; remove unrealised profit on inventory by increasing the seller's cost of sales — if the subsidiary sold, adjust the NCI.",
+        "CH25B": "Pro-rate the subsidiary's income, expenses and NCI for the months controlled by the parent."
       }
     },
     "fa-sys6": {
@@ -140,6 +237,14 @@
       "notes": {
         "CH26": "Ratio families: profitability (gross and operating margin, ROCE, ROE), liquidity (current, quick), efficiency (inventory turnover, receivables collection, payables payment, working capital cycle, asset turnover), position (interest cover, gearing). Note obvious trends before calculating, and mind the limitations.",
         "CH26F": "Ratios mislead under inflation, differing accounting policies, seasonal trading, unrepresentative year-ends, related party transactions, differing ratio definitions, manipulated statements, or a new company with no comparatives."
+      },
+      "details": {
+        "CH26A": "To provide users with information about financial performance and position and enable decisions. Note obvious changes and trends before calculating; give reasons and significance for the future.",
+        "CH26B": "Gross margin = gross profit / revenue. Operating margin = PBIT / revenue. ROCE = PBIT / (equity + non-current liabilities). ROE = (profit − preference dividends) / equity.",
+        "CH26C": "Current ratio = current assets / current liabilities. Quick (acid) ratio = (current assets − inventories) / current liabilities.",
+        "CH26D": "Inventory days = inventories / cost of sales × 365. Receivable days = receivables / revenue × 365. Payable days = payables / cost of sales × 365. Cycle = inventory + receivable − payable days. Asset turnover = revenue / (total assets − current liabilities).",
+        "CH26E": "Interest cover = PBIT / interest expense. Gearing = non-current liabilities / (equity + non-current liabilities).",
+        "CH26F": "Inflation, differing policies, lack of information, seasonal trading, unrepresentative year-ends, related party transactions, differing definitions, manipulation, no comparatives."
       }
     },
     "ch1": {

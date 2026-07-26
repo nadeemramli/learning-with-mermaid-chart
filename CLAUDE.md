@@ -40,10 +40,10 @@ the intended hook; otherwise ask), run `npm test`, verify it renders
 - Edges are routed by ELK (`elk.edgeRouting: ORTHOGONAL`) and rendered by the
   custom `ElkEdge` component from `data.points`; don't switch edges back to
   built-in React Flow types or they'll cut through nodes.
-- The Vercel project is NOT git-connected: deploys go through the Vercel MCP
-  `deploy_to_vercel` tool (project `learning-with-mermaid-chart`, team
-  `nadeemramlis-projects`, target `production`) with the full source tree —
-  a `git push` alone does not redeploy.
+- The Vercel project is NOT git-connected — a `git push` alone does not
+  redeploy. The repo is linked to project `learning-with-mermaid-chart`
+  (team `nadeemramlis-projects`) via the authenticated Vercel CLI: deploy
+  with `npx vercel deploy --prod --yes`.
 
 ## Commands
 

@@ -39,7 +39,13 @@ function Panel({
 
   useEffect(() => {
     let cancelled = false
-    layoutSystem(parent.def.id, parent.diagram, parent.childrenByNode, parent.def.details ?? {}).then((result) => {
+    layoutSystem(
+      parent.def.id,
+      parent.diagram,
+      parent.childrenByNode,
+      parent.def.details ?? {},
+      parent.def.layout ?? {},
+    ).then((result) => {
       if (!cancelled) setLayout(result)
     })
     return () => {

@@ -21,7 +21,7 @@ export default function GroupNode({ id, data }: NodeProps<Node<SystemNodeData>>)
         style={{ color: hasChild ? 'var(--accent)' : 'var(--group-title)', cursor: hasChild ? 'zoom-in' : 'default' }}
         onDoubleClick={hasChild ? () => drill(id) : undefined}
       >
-        <span>{data.label}</span>
+        <span style={{ whiteSpace: 'pre-line' }}>{data.label}</span>
         {hasChild && (
           <button
             className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white shadow"

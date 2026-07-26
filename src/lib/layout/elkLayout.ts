@@ -20,19 +20,23 @@ export interface LayoutResult {
 }
 
 export function wrapLabel(label: string, maxChars = 26): string[] {
-  const words = label.split(/\s+/)
-  const lines: string[] = []
-  let current = ''
-  for (const word of words) {
-    if (current && (current + ' ' + word).length > maxChars) {
-      lines.push(current)
-      current = word
-    } else {
-      current = current ? current + ' ' + word : word
+  // Explicit newlines (from mermaid <br/>) are hard breaks; wrap each segment.
+  return label.split('\n').flatMap((segment) => {
+    const words = segment.split(/\s+/).filter(Boolean)
+    if (!words.length) return ['']
+    const lines: string[] = []
+    let current = ''
+    for (const word of words) {
+      if (current && (current + ' ' + word).length > maxChars) {
+        lines.push(current)
+        current = word
+      } else {
+        current = current ? current + ' ' + word : word
+      }
     }
-  }
-  if (current) lines.push(current)
-  return lines
+    if (current) lines.push(current)
+    return lines
+  })
 }
 
 export function estimateNodeSize(label: string, detail?: string): { width: number; height: number } {
@@ -64,6 +68,10 @@ const ROOT_OPTIONS: Record<string, string> = {
   'elk.spacing.edgeEdge': '10',
   'elk.spacing.componentComponent': '56',
   'elk.layered.considerModelOrder.strategy': 'NODES_AND_EDGES',
+  // Break feedback cycles greedily but use declaration order as tie-breaker,
+  // so the file's pedagogical sequence (system 1 → 6) sets the reading
+  // direction without distorting simpler diagrams.
+  'elk.layered.cycleBreaking.strategy': 'GREEDY_MODEL_ORDER',
 }
 
 function subgraphOptions(label: string): Record<string, string> {
@@ -85,6 +93,7 @@ async function computeLayout(
   diagram: ParsedDiagram,
   links: Record<string, string>,
   details: Record<string, string>,
+  layoutOverrides: Record<string, string>,
 ): Promise<LayoutResult> {
   const nodesBySubgraph = new Map<string | null, typeof diagram.nodes>()
   for (const node of diagram.nodes) {
@@ -117,7 +126,11 @@ async function computeLayout(
   const elk = new ELK()
   const laidOut = await elk.layout({
     id: 'root',
-    layoutOptions: { ...ROOT_OPTIONS, 'elk.direction': elkDirection(diagram.direction) },
+    layoutOptions: {
+      ...ROOT_OPTIONS,
+      'elk.direction': elkDirection(diagram.direction),
+      ...layoutOverrides,
+    },
     children: buildChildren(null),
     edges: diagram.edges.map((e) => ({ id: e.id, sources: [e.source], targets: [e.target] })),
   })
@@ -202,10 +215,11 @@ export function layoutSystem(
   diagram: ParsedDiagram,
   links: Record<string, string>,
   details: Record<string, string> = {},
+  layoutOverrides: Record<string, string> = {},
 ): Promise<LayoutResult> {
   let cached = layoutCache.get(systemId)
   if (!cached) {
-    cached = computeLayout(diagram, links, details)
+    cached = computeLayout(diagram, links, details, layoutOverrides)
     layoutCache.set(systemId, cached)
   }
   return cached

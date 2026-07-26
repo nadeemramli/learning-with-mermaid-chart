@@ -57,31 +57,48 @@ describe('regulatory-ecosystem.md (real fixture)', () => {
 describe('fa-architecture.md (real fixture)', () => {
   const diagram = load('accounting/fa-architecture.md')
 
-  it('parses 6 subgraphs with their long labels intact', () => {
-    expect(diagram.subgraphs).toHaveLength(6)
+  it('parses 8 subgraphs (6 systems + 2 embedded drilldowns) with labels intact', () => {
+    expect(diagram.subgraphs).toHaveLength(8)
     expect(diagram.subgraphs.map((s) => s.id)).toEqual([
-      'SYS1', 'SYS2', 'SYS3', 'SYS4', 'SYS5', 'SYS6',
+      'SYS1', 'SYS2', 'SYS3', 'SYS4', 'SYS5', 'FIN', 'EVENTS', 'SYS6',
     ])
-    expect(diagram.subgraphs[0].label).toBe('SYSTEM 1 — WHY ACCOUNTING EXISTS')
+    expect(diagram.subgraphs[0].label).toBe('SYSTEM 1 — REPORTING CONSTITUTION')
   })
 
   it('parses dotted edges with labels', () => {
-    const edge = diagram.edges.find((e) => e.source === 'C4' && e.target === 'M')
+    const edge = diagram.edges.find((e) => e.source === 'C4' && e.target === 'M0')
     expect(edge?.style).toBe('dotted')
     expect(edge?.label).toBe('Recognition and measurement rules')
+    expect(
+      diagram.edges.find((e) => e.source === 'C3' && e.target === 'L')?.label,
+    ).toBe('governs account classification')
   })
 
-  it('parses chained edges (D --> B --> L --> U) into individual edges', () => {
+  it('parses chained edges (D --> B --> L --> UTB) into individual edges', () => {
     const pairs = diagram.edges.map((e) => `${e.source}->${e.target}`)
     expect(pairs).toContain('D->B')
     expect(pairs).toContain('B->L')
-    expect(pairs).toContain('L->U')
+    expect(pairs).toContain('L->UTB')
+    // SYS3's reasoning spine is also a chain
+    expect(pairs).toContain('M0->CL')
+    expect(pairs).toContain('UN->BM')
   })
 
-  it('parses inline node definitions inside edge lines (S11 --> C["..."])', () => {
-    const c = diagram.nodes.find((n) => n.id === 'C')
-    expect(c?.label).toBe('REPORTING CONSTITUTION')
-    expect(c?.subgraphId).toBe('SYS1')
+  it('parses inline node definitions inside edge lines (S11 --> CON["..."])', () => {
+    const con = diagram.nodes.find((n) => n.id === 'CON')
+    expect(con?.label).toBe('REPORTING CONSTITUTION')
+    expect(con?.subgraphId).toBe('SYS1')
+  })
+
+  it('converts <br/> in labels to newlines', () => {
+    expect(diagram.nodes.find((n) => n.id === 'M1')?.label).toBe(
+      'Asset measurement\nInventory • non-current assets • receivable impairment',
+    )
+  })
+
+  it('resolves forward references into later subgraphs (F5B -.-> FINQ)', () => {
+    expect(diagram.nodes.find((n) => n.id === 'FINQ')?.subgraphId).toBe('FIN')
+    expect(diagram.edges.some((e) => e.source === 'ADJ' && e.target === 'M0')).toBe(true)
   })
 
   it('respects per-subgraph direction (SYS2 is LR)', () => {

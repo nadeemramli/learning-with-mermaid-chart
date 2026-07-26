@@ -46,7 +46,13 @@ function Canvas({ system, entry, focusNode, onSelectNode, registerDrill }: Props
 
   useEffect(() => {
     let cancelled = false
-    layoutSystem(system.def.id, system.diagram, system.childrenByNode, system.def.details ?? {}).then((result) => {
+    layoutSystem(
+      system.def.id,
+      system.diagram,
+      system.childrenByNode,
+      system.def.details ?? {},
+      system.def.layout ?? {},
+    ).then((result) => {
       if (!cancelled) setLayout(result)
     })
     return () => {

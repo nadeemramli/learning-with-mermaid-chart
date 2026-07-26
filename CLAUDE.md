@@ -12,6 +12,12 @@ https://learning-with-mermaid-chart.vercel.app.
   click-through detail panel; optional `details: { nodeId → text }` renders
   the text INLINE inside the node (Kaplan-summary style — used by fa-sys1..6).
   Both maps are hard-validated against the diagram's node/subgraph ids.
+  Optional `layout: { elkOption → value }` overrides ELK options per system
+  (fa-architecture pins `elk.layered.cycleBreaking.strategy: MODEL_ORDER` so
+  its feedback loops don't scramble the 1→6 reading order; the default is
+  GREEDY_MODEL_ORDER).
+- Mermaid `<br/>` in labels becomes a real line break (parser converts to \n;
+  nodes render with pre-line).
 - Diagrams are plain mermaid `flowchart` blocks inside markdown fences.
   Supported subset (parser: `src/lib/mermaid/parse.ts`, fails loudly with
   line numbers): subgraphs with `direction`, `ID["label"]` rectangles,

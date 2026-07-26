@@ -11,6 +11,8 @@ export interface SystemDef {
   notes?: Record<string, string>
   /** nodeId → text rendered inline inside the node itself */
   details?: Record<string, string>
+  /** ELK layout option overrides for this system's diagram */
+  layout?: Record<string, string>
 }
 
 export interface LoadedSystem {
@@ -38,6 +40,7 @@ interface ManifestShape {
       links: Record<string, string>
       notes?: Record<string, string>
       details?: Record<string, string>
+      layout?: Record<string, string>
     }
   >
 }

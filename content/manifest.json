@@ -36,8 +36,11 @@
         "SYS6": "fa-sys6"
       },
       "notes": {
-        "C": "The 'reporting constitution' is the conceptual foundation every later system obeys: objectives, rules, element definitions, and recognition/measurement principles.",
-        "ATB": "The adjusted trial balance is the checkpoint between raw bookkeeping and the financial statements — every adjustment in System 3 lands here."
+        "ATB": "The adjusted trial balance is the checkpoint between raw bookkeeping and the financial statements — every adjustment in System 3 lands here.",
+        "CON": "The 'reporting constitution' is the conceptual foundation every later system obeys: objectives, rules, element definitions, and recognition/measurement principles."
+      },
+      "layout": {
+        "elk.layered.cycleBreaking.strategy": "MODEL_ORDER"
       }
     },
     "fa-sys1": {

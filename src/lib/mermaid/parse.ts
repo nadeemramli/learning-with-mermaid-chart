@@ -22,6 +22,9 @@ export function extractMermaidBlock(markdown: string): string {
   return match ? match[1] : markdown
 }
 
+/** Mermaid line breaks (<br/>) become real newlines in labels. */
+const cleanLabel = (label: string): string => label.replace(/<br\s*\/?>/gi, '\n')
+
 const HEADER_RE = /^(?:flowchart|graph)\s+(TB|TD|LR|RL|BT)$/
 const SUBGRAPH_RE = /^subgraph\s+(\w+)\s*(?:\[\s*"?(.*?)"?\s*\])?$/
 const DIRECTION_RE = /^direction\s+(TB|TD|LR|RL|BT)$/
@@ -88,7 +91,7 @@ export function parseFlowchart(source: string): ParsedDiagram {
       if (!existing || existing.implicit) {
         nodes.set(ep.id, {
           id: ep.id,
-          label: ep.label,
+          label: cleanLabel(ep.label),
           subgraphId: currentSubgraph(),
           implicit: false,
         })
@@ -124,7 +127,7 @@ export function parseFlowchart(source: string): ParsedDiagram {
       if (subgraphs.has(id)) throw new ParseError(lineNo, `duplicate subgraph "${id}"`)
       subgraphs.set(id, {
         id,
-        label: label ?? id,
+        label: label ? cleanLabel(label) : id,
         direction: null,
         parentId: currentSubgraph(),
       })

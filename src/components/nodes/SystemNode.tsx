@@ -22,7 +22,9 @@ export default function SystemNode({ id, data, selected }: NodeProps<Node<System
       title={hasChild ? 'Double-click to enter this system' : undefined}
     >
       <Handle type="target" position={Position.Top} className="!pointer-events-none !opacity-0" />
-      <span className={data.detail ? 'font-semibold' : undefined}>{data.label}</span>
+      <span className={data.detail ? 'font-semibold' : undefined} style={{ whiteSpace: 'pre-line' }}>
+        {data.label}
+      </span>
       {data.detail && (
         <span
           className="mt-1.5 w-full border-t pt-1.5 text-left text-[9.5px] leading-[13px]"

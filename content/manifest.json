@@ -1,0 +1,37 @@
+{
+  "title": "Learning Universe",
+  "root": "economy",
+  "systems": {
+    "economy": {
+      "title": "The Economy",
+      "file": "economy.md",
+      "links": {
+        "ACC": "regulatory-ecosystem"
+      },
+      "notes": {
+        "ACC": "The accounting and financial reporting ecosystem exists because outsiders supply capital to firms they do not manage. It converts private economic activity into trusted, comparable public information."
+      }
+    },
+    "regulatory-ecosystem": {
+      "title": "Accounting & Regulatory Ecosystem",
+      "file": "accounting/regulatory-ecosystem.md",
+      "links": {
+        "REPORTING": "fa-architecture"
+      },
+      "notes": {
+        "IASB": "The International Accounting Standards Board sets IFRS. It is influential worldwide but has no sovereign authority — standards only become compulsory when a national legislature adopts or endorses them.",
+        "MASB": "The Malaysian Accounting Standards Board, created by the Financial Reporting Act 1997, issues the MFRS Framework (word-for-word IFRS-equivalent) and MPERS for eligible private entities.",
+        "FS": "Financial statements are the central artifact of the whole system: produced by the entity, audited by assurance, filed with regulators, and read by every user group."
+      }
+    },
+    "fa-architecture": {
+      "title": "Financial Accounting — System Architecture",
+      "file": "accounting/fa-architecture.md",
+      "links": {},
+      "notes": {
+        "C": "The 'reporting constitution' is the conceptual foundation every later system obeys: objectives, rules, element definitions, and recognition/measurement principles.",
+        "ATB": "The adjusted trial balance is the checkpoint between raw bookkeeping and the financial statements — every adjustment in System 3 lands here."
+      }
+    }
+  }
+}

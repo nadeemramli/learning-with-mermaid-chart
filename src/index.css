@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+@import '@xyflow/react/dist/style.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --canvas-bg: #f5f6fa;
+  --canvas-dots: #d4d7e2;
+  --node-bg: #ffffff;
+  --node-border: #d6dae5;
+  --node-text: #232a3b;
+  --group-bg: rgba(99, 102, 241, 0.035);
+  --group-border: #c5cad9;
+  --group-title: #5d6478;
+  --edge: #8f97a9;
+  --edge-muted: #b4bac9;
+  --accent: #6366f1;
+  --accent-soft: rgba(99, 102, 241, 0.14);
+  --panel-bg: #ffffff;
+}
+
+.dark {
+  --canvas-bg: #0b0e17;
+  --canvas-dots: #232a3d;
+  --node-bg: #161c2c;
+  --node-border: #2b3349;
+  --node-text: #e4e8f2;
+  --group-bg: rgba(129, 140, 248, 0.045);
+  --group-border: #333c58;
+  --group-title: #8e96ae;
+  --edge: #4c5470;
+  --edge-muted: #38405a;
+  --accent: #818cf8;
+  --accent-soft: rgba(129, 140, 248, 0.16);
+  --panel-bg: #10141f;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--canvas-bg);
+  color: var(--node-text);
+}
+
+/* ---- React Flow theming ---- */
+.react-flow {
+  background: var(--canvas-bg);
+}
+.react-flow__edge-path {
+  stroke: var(--edge);
+  stroke-width: 1.4;
+}
+.edge-dotted .react-flow__edge-path {
+  stroke: var(--edge-muted);
+}
+.react-flow__edge-text {
+  fill: var(--group-title);
+  font-size: 10px;
+}
+.react-flow__edge-textbg {
+  fill: var(--canvas-bg);
+  fill-opacity: 0.92;
+}
+.react-flow__controls {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.react-flow__controls-button {
+  background: var(--panel-bg);
+  border-bottom: 1px solid var(--node-border);
+  fill: var(--node-text);
+}
+.react-flow__controls-button:hover {
+  background: var(--accent-soft);
+}
+.react-flow__attribution {
+  background: transparent;
+  color: var(--group-title);
+}
+
+/* ---- transitions & highlights ---- */
+.canvas-fade {
+  transition: opacity 0.3s ease;
+}
+.canvas-fade.is-fading {
+  opacity: 0;
+}
+.canvas-enter {
+  animation: canvasEnter 0.35s ease;
+}
+@keyframes canvasEnter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 var(--accent-soft), 0 0 0 2px var(--accent); }
+  70% { box-shadow: 0 0 0 14px rgba(99, 102, 241, 0), 0 0 0 2px var(--accent); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0), 0 0 0 2px var(--accent); }
+}
+.node-highlight {
+  animation: pulseRing 1.6s ease-out infinite;
+  border-color: var(--accent) !important;
+}

@@ -3,10 +3,12 @@ import { useEffect, useMemo, useState } from 'react'
 import { layoutSystem, type LayoutResult } from '../lib/layout/elkLayout'
 import { universe } from '../lib/loadUniverse'
 import type { LoadedSystem } from '../lib/universe'
+import ElkEdge from './edges/ElkEdge'
 import GroupNode from './nodes/GroupNode'
 import SystemNode from './nodes/SystemNode'
 
 const nodeTypes = { systemNode: SystemNode, systemGroup: GroupNode }
+const edgeTypes = { elk: ElkEdge }
 
 /**
  * Always-visible card showing the PARENT system with the node we entered
@@ -77,6 +79,7 @@ function Panel({
               nodes={nodes}
               edges={layout.edges}
               nodeTypes={nodeTypes}
+              edgeTypes={edgeTypes}
               fitView
               fitViewOptions={{ padding: 0.05 }}
               minZoom={0.01}

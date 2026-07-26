@@ -29,5 +29,15 @@ describe('elk layout of the real regulatory-ecosystem diagram', () => {
     const reporting = nodes.find((n) => n.id === 'REPORTING')
     expect(reporting?.type).toBe('systemGroup')
     expect(reporting?.data.childId).toBe('fa-architecture')
+
+    // Every edge must carry an ELK-routed polyline with finite coordinates.
+    for (const edge of edges) {
+      const points = (edge.data?.points ?? []) as Array<{ x: number; y: number }>
+      expect(points.length).toBeGreaterThanOrEqual(2)
+      for (const p of points) {
+        expect(Number.isFinite(p.x)).toBe(true)
+        expect(Number.isFinite(p.y)).toBe(true)
+      }
+    }
   })
 })

@@ -12,10 +12,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { layoutSystem, type AppNode, type LayoutResult } from '../lib/layout/elkLayout'
 import type { LoadedSystem } from '../lib/universe'
+import ElkEdge from './edges/ElkEdge'
 import GroupNode from './nodes/GroupNode'
 import SystemNode from './nodes/SystemNode'
 
 const nodeTypes = { systemNode: SystemNode, systemGroup: GroupNode }
+const edgeTypes = { elk: ElkEdge }
 
 interface Props {
   system: LoadedSystem
@@ -157,6 +159,7 @@ function Canvas({ system, entry, focusNode, onSelectNode, registerDrill }: Props
         nodes={displayNodes}
         edges={layout.edges}
         nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
         minZoom={0.05}
         maxZoom={2.5}
         zoomOnDoubleClick={false}

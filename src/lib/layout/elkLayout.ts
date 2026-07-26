@@ -1,4 +1,4 @@
-import type { ElkNode } from 'elkjs/lib/elk.bundled.js'
+import type { ElkExtendedEdge, ElkNode } from 'elkjs/lib/elk.bundled.js'
 import { MarkerType, type Edge, type Node } from '@xyflow/react'
 import type { ParsedDiagram } from '../mermaid/types'
 
@@ -45,8 +45,13 @@ export function estimateNodeSize(label: string): { width: number; height: number
 const ROOT_OPTIONS: Record<string, string> = {
   'elk.algorithm': 'layered',
   'elk.hierarchyHandling': 'INCLUDE_CHILDREN',
-  'elk.layered.spacing.nodeNodeBetweenLayers': '48',
+  'elk.edgeRouting': 'ORTHOGONAL',
+  'elk.layered.spacing.nodeNodeBetweenLayers': '52',
+  'elk.layered.spacing.edgeNodeBetweenLayers': '24',
+  'elk.layered.spacing.edgeEdgeBetweenLayers': '12',
   'elk.spacing.nodeNode': '28',
+  'elk.spacing.edgeNode': '18',
+  'elk.spacing.edgeEdge': '10',
   'elk.spacing.componentComponent': '56',
   'elk.layered.considerModelOrder.strategy': 'NODES_AND_EDGES',
 }
@@ -105,8 +110,14 @@ async function computeLayout(
   })
 
   const rfNodes: AppNode[] = []
-  const walk = (elkNode: ElkNode, parentId?: string) => {
+  // Absolute canvas position of every ELK node, needed to translate ELK's
+  // edge routes (which are relative to each edge's container) to canvas space.
+  const absById = new Map<string, { x: number; y: number }>()
+  absById.set('root', { x: 0, y: 0 })
+  const walk = (elkNode: ElkNode, parentAbs: { x: number; y: number }, parentId?: string) => {
     for (const child of elkNode.children ?? []) {
+      const abs = { x: parentAbs.x + (child.x ?? 0), y: parentAbs.y + (child.y ?? 0) }
+      absById.set(child.id, abs)
       const subgraph = subgraphById.get(child.id)
       const base = {
         id: child.id,
@@ -124,7 +135,7 @@ async function computeLayout(
           selectable: true,
           data: { label: subgraph.label, kind: 'group', childId: links[subgraph.id] },
         })
-        walk(child, child.id)
+        walk(child, abs, child.id)
       } else {
         const label = diagram.nodes.find((n) => n.id === child.id)?.label ?? child.id
         rfNodes.push({
@@ -135,14 +146,28 @@ async function computeLayout(
       }
     }
   }
-  walk(laidOut)
+  walk(laidOut, { x: 0, y: 0 })
+
+  const pointsByEdgeId = new Map<string, Array<{ x: number; y: number }>>()
+  for (const rawEdge of laidOut.edges ?? []) {
+    const elkEdge = rawEdge as ElkExtendedEdge
+    const containerId = (elkEdge as unknown as { container?: string }).container ?? 'root'
+    const offset = absById.get(containerId) ?? { x: 0, y: 0 }
+    const points: Array<{ x: number; y: number }> = []
+    for (const section of elkEdge.sections ?? []) {
+      for (const p of [section.startPoint, ...(section.bendPoints ?? []), section.endPoint]) {
+        points.push({ x: p.x + offset.x, y: p.y + offset.y })
+      }
+    }
+    pointsByEdgeId.set(elkEdge.id, points)
+  }
 
   const rfEdges: Edge[] = diagram.edges.map((e) => ({
     id: e.id,
     source: e.source,
     target: e.target,
-    type: 'smoothstep',
-    label: e.label,
+    type: 'elk',
+    data: { points: pointsByEdgeId.get(e.id) ?? [], label: e.label },
     className: e.style === 'dotted' ? 'edge-dotted' : 'edge-solid',
     style: e.style === 'dotted' ? { strokeDasharray: '6 4' } : undefined,
     markerEnd: {
